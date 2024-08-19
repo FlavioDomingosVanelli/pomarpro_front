@@ -1,0 +1,71 @@
+<app-menu></app-menu>
+
+<div class="pagina">
+    <header>
+        <h1>Administração | Cadastro de usuário</h1>
+    </header>
+    <form [formGroup]="formulario">
+        <div>
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="nome">
+            </mat-form-field>
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label>Sobrenome</mat-label>
+                    <input matInput formControlName="sobrenome">
+            </mat-form-field>
+            <div>
+            <mat-form-field appearance="outline" color="accent" class="grande">
+                <mat-label>Endereço</mat-label>
+                    <input matInput formControlName="endereco">
+            </mat-form-field>
+            </div>
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label>Telefone</mat-label>
+                    <input matInput formControlName="telefone">
+            </mat-form-field>
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label>E-mail</mat-label>
+                    <input matInput formControlName="email">
+            </mat-form-field>
+            <div>
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label>Login</mat-label>
+                    <input matInput formControlName="login">
+            </mat-form-field>
+            </div>
+            <div class="controles">
+                <div>
+                <button mat-raised-button [disabled]="formulario.enabled" (click)="onIncluir()">Incluir</button>
+                </div>
+                <button mat-raised-button [disabled]="formulario.invalid" (click)="onSalvar()">Salvar</button>              
+                <div>
+                <button mat-raised-button [disabled]="formulario.disabled" (click)="onCancelar()">Cancelar</button>
+               </div>
+
+            </div>
+        </div>
+
+    </form>
+    <div class="relatorio">
+        <h2>Usuários cadastros</h2>
+        <table>
+            <tr>
+                <th>Ação</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Login</th>
+                <th>e-mail</th>
+            </tr>
+            <tr *ngFor="let usuario of relatorio">
+                <td><button>Excluir</button></td>
+                <td>{{usuario.nome}} {{usuario.sobrenome}}</td>
+                <td>{{usuario.telefone}}</td>
+                <td>{{usuario.login}}</td>
+                <th>{{usuario.email}}</th>
+            </tr>
+        </table>
+
+
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<app-menu></app-menu>
+
+<div class="pagina">
+    <header>
+        <h1>Materiais</h1>
+    </header>
+    <form [formGroup]="formulario">
+        <div>
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="nome">
+            </mat-form-field>
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label>valor</mat-label>
+                    <input matInput formControlName="valor">
+            </mat-form-field>
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label>tipo</mat-label>
+                <input matInput formControlName="tipo">
+            </mat-form-field>
+            <div>
+            <mat-form-field appearance="outline" color="accent" class="grande">
+                <mat-label>fornecedor</mat-label>
+                    <input matInput formControlName="fornecedor">
+            </mat-form-field>
+            
+        </div>
+            </div>
+            <div class="controles">
+                <div>
+                <button mat-raised-button [disabled]="formulario.enabled" (click)="onIncluir()">Incluir</button>
+                </div>
+                <button mat-raised-button [disabled]="formulario.invalid" (click)="onSalvar()">Salvar</button>              
+                <div>
+                <button mat-raised-button [disabled]="formulario.disabled" (click)="onCancelar()">Cancelar</button>
+               </div>
+
+            </div>
+        
+
+    </form>
+    <div class="formulario">
+        <h2>Materiais cadastros</h2>
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>valor</th>
+                <th>tb_tipo_id,</th>
+                <th>fornecedor</th>
+            </tr>
+            <tr *ngFor="let material of relatorio">
+                <td><button>Excluir</button></td>
+                <td>{{material.nome}}</td>
+                <td>{{material.valor}}</td>
+                <td>{{material.tb_tipo_id}}</td>
+                <th>{{material.fornecedor}}</th>
+            </tr>
+        </table>
+
+
+    </div>
+</div>
+   
